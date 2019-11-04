@@ -203,7 +203,7 @@
 }
 
 - (UIImage *)imageForEmptyDataSet:(UIScrollView *)scrollView {
-    UIImage *returnImage = XHUIKitImage(@"wushuju");
+    UIImage *returnImage = XHKitImage(@"wushuju");
     return returnImage;
 }
 
