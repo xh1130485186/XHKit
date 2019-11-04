@@ -59,5 +59,5 @@
 #define XHUIViewAnimationOptionsCurveOut (8<<16)
 
 // 图片
-#define XHUIKitImage(name) [UIImage imageWithContentsOfFile:XHBundlePathForResource(@"xhkit", NSClassFromString(@"XHUICommonViewController"), name, @"png", 1)]
+#define XHKitImage(name) [UIImage imageWithContentsOfFile:XHBundlePathForResource(@"xhkit", NSClassFromString(@"XHUICommonViewController"), name, @"png", 1)]
 
