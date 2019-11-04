@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XiangHongKit"
-  s.version      = "0.0.1"
+  s.version      = "0.4.0"
   s.summary      = "framework"
   s.description  = <<-DESC
             Initialize the
@@ -19,8 +19,8 @@ Pod::Spec.new do |s|
   s.resources = "xhkit.bundle"
 
   s.requires_arc = true
-  # s.public_header_files = 'XHKit.h'
-  # s.source_files = 'XHKit.h'
+  s.public_header_files = 'XHKit.h'
+  s.source_files = 'XHKit.h'
 
   s.subspec 'Extensions' do |ss|
 
@@ -48,14 +48,14 @@ Pod::Spec.new do |s|
       sss.source_files = 'Extensions/UIApplication/*.{h,m}'
     end
 
-    #ss.subspec 'UIColor' do |sss|
-     # sss.source_files = 'Extensions/UIColor/*.{h,m}'
-    #end
+    ss.subspec 'UIColor' do |sss|
+      sss.source_files = 'Extensions/UIColor/*.{h,m}'
+    end
 
-    #ss.subspec 'UIImage' do |sss|
-     # sss.dependency 'XiangHongKit/Extensions/UIColor'
-      #sss.source_files = 'Extensions/UIImage/*.{h,m}'
-    #end
+    ss.subspec 'UIImage' do |sss|
+      sss.dependency 'XiangHongKit/Extensions/UIColor'
+      sss.source_files = 'Extensions/UIImage/*.{h,m}'
+    end
 
     ss.subspec 'UIView' do |sss|
       sss.source_files = 'Extensions/UIView/*.{h,m}'
@@ -67,12 +67,12 @@ Pod::Spec.new do |s|
 
   end
 
- # s.subspec 'Common' do |ss|
-  #  ss.dependency 'XiangHongKit/Extensions/DZNEmptyDataSet'
-   # ss.dependency 'XiangHongKit/Extensions/UIView'
-    #ss.dependency 'XiangHongKit/Extensions/UIImage'
-    #ss.source_files = 'Common/*.{h,m}'
-  #end
+  s.subspec 'Common' do |ss|
+    ss.dependency 'XiangHongKit/Extensions/DZNEmptyDataSet'
+    ss.dependency 'XiangHongKit/Extensions/UIView'
+    ss.dependency 'XiangHongKit/Extensions/UIImage'
+    ss.source_files = 'Common/*.{h,m}'
+  end
 
   s.subspec 'Tools' do |ss|
 
