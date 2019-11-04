@@ -52,10 +52,10 @@ Pod::Spec.new do |s|
      # sss.source_files = 'Extensions/UIColor/*.{h,m}'
     #end
 
-    ss.subspec 'UIImage' do |sss|
-      sss.dependency 'XiangHongKit/Extensions/UIColor'
-      sss.source_files = 'Extensions/UIImage/*.{h,m}'
-    end
+    #ss.subspec 'UIImage' do |sss|
+     # sss.dependency 'XiangHongKit/Extensions/UIColor'
+      #sss.source_files = 'Extensions/UIImage/*.{h,m}'
+    #end
 
     ss.subspec 'UIView' do |sss|
       sss.source_files = 'Extensions/UIView/*.{h,m}'
