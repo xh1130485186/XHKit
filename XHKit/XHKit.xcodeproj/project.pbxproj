@@ -56,6 +56,7 @@
 		132410DF237025E000F5BCFE /* XHUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 132410DB237025E000F5BCFE /* XHUIHelper.m */; };
 		132410E0237025E000F5BCFE /* XHUICommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132410DD237025E000F5BCFE /* XHUICommonViewController.m */; };
 		132410E2237026F300F5BCFE /* XiangHongKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 132410E1237026F300F5BCFE /* XiangHongKit.podspec */; };
+		132410E42370294700F5BCFE /* xhkit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 132410E32370294700F5BCFE /* xhkit.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,7 @@
 		132410DC237025E000F5BCFE /* XHUICommonDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHUICommonDefines.h; sourceTree = "<group>"; };
 		132410DD237025E000F5BCFE /* XHUICommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHUICommonViewController.m; sourceTree = "<group>"; };
 		132410E1237026F300F5BCFE /* XiangHongKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XiangHongKit.podspec; path = ../../XiangHongKit.podspec; sourceTree = "<group>"; };
+		132410E32370294700F5BCFE /* xhkit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = xhkit.bundle; path = ../../xhkit.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -243,6 +245,7 @@
 				13240FE32370219F00F5BCFE /* Info.plist */,
 				13240FE42370219F00F5BCFE /* main.m */,
 				132410E1237026F300F5BCFE /* XiangHongKit.podspec */,
+				132410E32370294700F5BCFE /* xhkit.bundle */,
 			);
 			path = XHKit;
 			sourceTree = "<group>";
@@ -604,6 +607,7 @@
 				13240FE22370219F00F5BCFE /* LaunchScreen.storyboard in Resources */,
 				13240FDF2370219F00F5BCFE /* Assets.xcassets in Resources */,
 				13240FDD2370219E00F5BCFE /* Main.storyboard in Resources */,
+				132410E42370294700F5BCFE /* xhkit.bundle in Resources */,
 				132410E2237026F300F5BCFE /* XiangHongKit.podspec in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
