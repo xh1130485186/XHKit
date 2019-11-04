@@ -98,6 +98,10 @@ Pod::Spec.new do |s|
     ss.subspec 'XHTimer' do |sss|
       sss.source_files = 'Tools/XHTimer/*.{h,m}'
     end
+    
+    ss.subspec 'XHContainer' do |sss|
+      sss.source_files = 'Tools/XHContainer/*.{h,m}'
+    end
 
   end
 

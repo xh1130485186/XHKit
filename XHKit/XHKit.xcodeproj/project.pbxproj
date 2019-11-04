@@ -57,6 +57,7 @@
 		132410E0237025E000F5BCFE /* XHUICommonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 132410DD237025E000F5BCFE /* XHUICommonViewController.m */; };
 		132410E2237026F300F5BCFE /* XiangHongKit.podspec in Resources */ = {isa = PBXBuildFile; fileRef = 132410E1237026F300F5BCFE /* XiangHongKit.podspec */; };
 		132410E42370294700F5BCFE /* xhkit.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 132410E32370294700F5BCFE /* xhkit.bundle */; };
+		132410E8237029F800F5BCFE /* XHContainerControl.m in Sources */ = {isa = PBXBuildFile; fileRef = 132410E7237029F800F5BCFE /* XHContainerControl.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -179,6 +180,8 @@
 		132410DD237025E000F5BCFE /* XHUICommonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHUICommonViewController.m; sourceTree = "<group>"; };
 		132410E1237026F300F5BCFE /* XiangHongKit.podspec */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = XiangHongKit.podspec; path = ../../XiangHongKit.podspec; sourceTree = "<group>"; };
 		132410E32370294700F5BCFE /* xhkit.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; name = xhkit.bundle; path = ../../xhkit.bundle; sourceTree = "<group>"; };
+		132410E6237029F800F5BCFE /* XHContainerControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XHContainerControl.h; sourceTree = "<group>"; };
+		132410E7237029F800F5BCFE /* XHContainerControl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XHContainerControl.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -404,6 +407,7 @@
 		13241082237024EE00F5BCFE /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				132410E5237029EA00F5BCFE /* XHContainer */,
 				13241083237024EE00F5BCFE /* XHLocation */,
 				13241086237024EE00F5BCFE /* XHKeychain */,
 				1324108B237024EE00F5BCFE /* XHFile */,
@@ -499,6 +503,15 @@
 			);
 			name = Common;
 			path = ../../Common;
+			sourceTree = "<group>";
+		};
+		132410E5237029EA00F5BCFE /* XHContainer */ = {
+			isa = PBXGroup;
+			children = (
+				132410E6237029F800F5BCFE /* XHContainerControl.h */,
+				132410E7237029F800F5BCFE /* XHContainerControl.m */,
+			);
+			path = XHContainer;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -664,6 +677,7 @@
 				132410A6237024EE00F5BCFE /* UIImage+XHRemote.m in Sources */,
 				132410C3237024EE00F5BCFE /* NSObject+RFJModel.m in Sources */,
 				132410AA237024EE00F5BCFE /* UIImage+XHGenerate.m in Sources */,
+				132410E8237029F800F5BCFE /* XHContainerControl.m in Sources */,
 				132410C5237024EE00F5BCFE /* NSObject+RFAssociatedValue.m in Sources */,
 				132410BD237024EE00F5BCFE /* XHKeychain.m in Sources */,
 				132410B8237024EE00F5BCFE /* NSObject+XHScrollDirection.m in Sources */,
