@@ -17,8 +17,6 @@
 
 #pragma mark - 布局相关
 
-#define KeyWindow [[[UIApplication sharedApplication] delegate] window]
-
 // 用户界面横屏了才会返回YES
 #define IS_LANDSCAPE UIInterfaceOrientationIsLandscape([[UIApplication sharedApplication] statusBarOrientation])
 
@@ -60,4 +58,19 @@
 
 // 图片
 #define XHKitImage(name) [UIImage imageWithContentsOfFile:XHBundlePathForResource(@"xhkit", NSClassFromString(@"XHUICommonViewController"), name, @"png", 1)]
+
+XH_INLINE UIWindow *KeyWindow() {
+    UIWindow *window;
+    if (@available(iOS 13.0, *)) {
+        for (UIWindowScene* windowScene in [UIApplication sharedApplication].connectedScenes) {
+            if (windowScene.activationState == UISceneActivationStateForegroundActive) {
+                window = windowScene.windows.firstObject;
+                break;
+            }
+        }
+    } else{
+        window = [UIApplication sharedApplication].keyWindow;
+    }
+    return window;
+}
 
