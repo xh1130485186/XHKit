@@ -19,7 +19,7 @@ Pod::Spec.new do |s|
   s.resources = "xhkit.bundle"
 
   s.requires_arc = true
-  s.public_header_files = 'Extensions/**/*.h', 'Common/**/*.h', 'Tools/**/*.h'
+  s.public_header_files = 'Extensions/**/*.h', 'Common/*.h', 'Tools/**/*.h'
   s.source_files = 'XHKit.h'
 
   s.subspec 'Extensions' do |ss|
