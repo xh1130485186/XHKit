@@ -196,9 +196,10 @@
  */
 - (NSString *)xh_stringByStrippingHTML {
     
-    NSData *htmlData = [self dataUsingEncoding:NSUTF8StringEncoding];
-    NSAttributedString *htmlString = [[NSAttributedString alloc] initWithData:htmlData options:@{NSDocumentTypeDocumentAttribute:NSHTMLTextDocumentType, NSCharacterEncodingDocumentAttribute:@(NSUTF8StringEncoding)} documentAttributes:nil error:nil];
-    NSString *string = [htmlString.string stringByReplacingOccurrencesOfString:@"<[^>]+>" withString:@"" options:NSRegularExpressionSearch range:NSMakeRange(0, htmlString.length)];
+    NSRegularExpression *regularExpretion = [NSRegularExpression regularExpressionWithPattern:@"<[^>]*>|\n"
+                                                                                    options:0
+                                                                                      error:nil];
+    NSString *string = [regularExpretion stringByReplacingMatchesInString:self options:NSMatchingReportProgress range:NSMakeRange(0, self.length) withTemplate:@""];
     return string;
 }
 /**
