@@ -361,6 +361,7 @@
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         
         BOOL isSucceed = [[NSFileManager defaultManager] removeItemAtPath:path error:nil];
+        [self createDirWithPath:path];
         if (completionHandler) {
             completionHandler(isSucceed);
         }
