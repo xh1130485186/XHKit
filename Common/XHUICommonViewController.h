@@ -10,6 +10,7 @@
 
 #import "XHUICommonDefines.h"
 #import "UIScrollView+EmptyDataSet.h"
+#import "UIViewController+BackButtonHandler.h"
 //#import "QMUIEmptyView.h"
 
 @interface XHUICommonViewController : UIViewController <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
@@ -18,14 +19,7 @@
 - (void)initializedAppearance;
 
 #pragma mark - 导航栏，左侧按钮返回事件
-/**
- 导航栏，左侧按钮返回事件，重写这个方法来，自定义返回
- 这个方法没有禁止左侧右滑返回，需要在设置interactivePopGestureRecognizerEnabled为no
- 
- 
- @return 返回no，不会自动pop，返回yes会自动pop
- */
-- (BOOL)navigationShouldPopOnBackBarButtonItemEvent;
+
 @property (nonatomic) BOOL interactivePopGestureRecognizerEnabled; // 禁用左侧右滑返回，yes为启动，no为禁用，默认为yes
 
 #pragma mark - 标题左部活动指示器

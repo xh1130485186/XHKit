@@ -10,7 +10,7 @@
 #import "UIView+XHRect.h"
 #import "UIImage+XHColor.h"
 
-@interface XHUICommonViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+@interface XHUICommonViewController () <DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UINavigationBarDelegate>
 
 @property (nonatomic) NSInteger topActivityIndicatorStartAnimationCount;  // 获取指示器调用次数
 
@@ -45,7 +45,7 @@
 
     [super viewWillDisappear:animated];
     
-    if (_interactivePopGestureRecognizerEnabled == NO) {
+    if ([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)] && _interactivePopGestureRecognizerEnabled == NO) {
         
         self.navigationController.interactivePopGestureRecognizer.enabled = YES;
     }
@@ -58,11 +58,11 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
+//    self.navigationController.navigationBar.delegate = self;
     
     _interactivePopGestureRecognizerEnabled = YES;
     
-    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:nil action:nil];
+    UIBarButtonItem *barButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"返回" style:UIBarButtonItemStyleDone target:self action:@selector(navigationShouldPopOnBackButton)];
     self.navigationItem.backBarButtonItem = barButtonItem;
     
     [self initializedAppearance];
@@ -76,30 +76,6 @@
 }
 
 #pragma mark - 控制返回
-// 返回事件
-- (BOOL)navigationShouldPopOnBackButton {
-
-    NSInteger count1 = self.navigationController.viewControllers.count;
-    BOOL pop = [self navigationShouldPopOnBackBarButtonItemEvent];
-    NSInteger count2 = self.navigationController.viewControllers.count;
-    if (count1 == count2 && !pop) {
-        
-        for(UIView *subview in [self.navigationController.navigationBar subviews]) {
-            if(0. < subview.alpha && subview.alpha < 1.) {
-                [UIView animateWithDuration:.25 animations:^{
-                    subview.alpha = 1.;
-                }];
-            }
-        }
-    }
-    
-    return pop;
-}
-
-- (BOOL)navigationShouldPopOnBackBarButtonItemEvent {
-
-    return YES;
-}
 
 - (void)setInteractivePopGestureRecognizerEnabled:(BOOL)interactivePopGestureRecognizerEnabled {
 

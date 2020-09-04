@@ -12,14 +12,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 #pragma mark - 字符串转字典
 
-@interface NSString (XHDictionaryValue)
+@interface NSString (XHObjectValue)
 
-/**
- JSON字符串转成NSDictionary
- 
- @return 字典
- */
+/// josn转字典
 - (NSDictionary *)xh_JSONObjectDictionaryValue;
+/// josn转数组
+- (NSArray *)xh_JSONObjectArrayValue;
 
 @end
 

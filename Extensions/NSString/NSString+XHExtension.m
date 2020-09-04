@@ -11,18 +11,26 @@
 
 #pragma mark - 字符串转字典
 
-@implementation NSString (XHDictionaryValue)
+@implementation NSString (XHObjectValue)
 
-- (NSDictionary *)xh_JSONObjectDictionaryValue {
+- (id)xh_JSONObjectValue {
     
     NSError *errorJson;
-    NSDictionary *jsonDict = [NSJSONSerialization JSONObjectWithData:[self dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:&errorJson];
+    id jsonDict = [NSJSONSerialization JSONObjectWithData:[self dataUsingEncoding:NSUTF8StringEncoding] options:NSJSONReadingMutableContainers error:&errorJson];
     if (errorJson != nil) {
         return nil;
     }
     return jsonDict;
 }
 
+/// josn转字典
+- (NSDictionary *)xh_JSONObjectDictionaryValue {
+    return [self xh_JSONObjectValue];
+}
+/// josn转数组
+- (NSArray *)xh_JSONObjectArrayValue {
+    return [self xh_JSONObjectValue];
+}
 
 @end
 

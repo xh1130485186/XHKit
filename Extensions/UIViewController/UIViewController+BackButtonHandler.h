@@ -31,9 +31,6 @@
 -(BOOL)navigationShouldPopOnBackButton;
 @end
 
-/**
- 导航控制器点击返回拦截
- */
 @interface UIViewController (BackButtonHandler) <BackButtonHandlerProtocol>
 
 @end
