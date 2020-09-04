@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XiangHongKit"
-  s.version      = "0.4.5"
+  s.version      = "0.4.6"
   s.summary      = "framework"
   s.description  = <<-DESC
             Initialize the
@@ -81,6 +81,7 @@ Pod::Spec.new do |s|
     ss.dependency 'XiangHongKit/Extensions/DZNEmptyDataSet'
     ss.dependency 'XiangHongKit/Extensions/UIView'
     ss.dependency 'XiangHongKit/Extensions/UIImage'
+    ss.dependency 'XiangHongKit/Extensions/UIViewController'
     ss.source_files = 'Common/*.{h,m}'
     ss.public_header_files = 'Common/*.{h}'
   end

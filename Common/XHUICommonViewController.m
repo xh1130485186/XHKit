@@ -78,7 +78,7 @@
 #pragma mark - 控制返回
 
 - (void)setInteractivePopGestureRecognizerEnabled:(BOOL)interactivePopGestureRecognizerEnabled {
-
+    
     _interactivePopGestureRecognizerEnabled = interactivePopGestureRecognizerEnabled;
     if([self.navigationController respondsToSelector:@selector(interactivePopGestureRecognizer)]) {
         self.navigationController.interactivePopGestureRecognizer.enabled = _interactivePopGestureRecognizerEnabled;
