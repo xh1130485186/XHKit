@@ -57,6 +57,12 @@
  */
 - (UIColor *)xh_averageColor;
 
+
+/// 获取图片每个坐标的颜色
+/// @param point 点
+- (UIColor *)getPixelColor:(CGPoint)point;
+
+
 /**
  获取当前图片得到灰色图片
 

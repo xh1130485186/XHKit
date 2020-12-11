@@ -61,6 +61,10 @@ typedef enum : NSUInteger {
 - (NSDate *)xh_dateByAddingDays:(NSInteger)days;
 - (NSDate *)xh_dateBySubtractingDays:(NSInteger)days;
 
+// 日期间隔天数
+- (NSUInteger)xh_dayNumberToData:(NSDate *)todata;
++ (NSUInteger)xh_dayNumberWithFromDate:(NSDate *)fromdate toData:(NSDate *)toData;
+
 #pragma mark - week 相关
 // 今天是周几，星期日为0，
 @property (nonatomic, readonly) NSInteger xh_weekday;
@@ -93,6 +97,8 @@ typedef enum : NSUInteger {
 - (NSDate *)xh_getFirstDateOfWeek;
 - (NSDate *)xh_getLastDateOfWeek;
 
++ (NSUInteger)xh_weekNumberFromData:(NSDate *)fromData toData:(NSDate *)toData;
+
 #pragma mar - month 相关
 
 // 这个月有多少天
@@ -116,6 +122,12 @@ typedef enum : NSUInteger {
 
 - (NSDate *)xh_getFirstDateOfMonth;
 - (NSDate *)xh_getLastDateOfMonth;
+
+
+- (NSDate *)xh_getFirstDateOfCalendarMonth;
+- (NSDate *)xh_getLastDateOfCalendarMonth;
+
+- (NSUInteger)xh_weekNumberInMonth;
 
 #pragma mark - year 相关
 

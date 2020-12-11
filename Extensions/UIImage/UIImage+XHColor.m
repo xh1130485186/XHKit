@@ -115,6 +115,54 @@
     }
 }
 
+- (UIColor *)getPixelColor:(CGPoint)point {
+//    CFDataRef pixelData = CGDataProviderCopyData(CGImageGetDataProvider(self.CGImage));
+//    UInt8 *data = (UInt8 *)CFDataGetBytePtr(pixelData);
+//    NSInteger pixelInfo = (((int)(self.size.width) * (int)(point.y)) + (int)(point.x)) * 4;
+//    return [UIColor colorWithRed:(data[pixelInfo]) / 255.0
+//                           green:((CGFloat)data[pixelInfo+1]) / 255.0
+//                            blue:((CGFloat)data[pixelInfo+2]) / 255.0
+//                           alpha:((CGFloat)data[pixelInfo+3]) / 255.0];
+    
+    
+//    CGSize thumbSize = CGSizeMake((int)self.size.width, (int)self.size.height);
+//    if (thumbSize.width == 0 || thumbSize.height == 0) {
+//        return nil;
+//    }
+//    NSInteger pointX = trunc(point.x);
+//    NSInteger pointY = trunc(point.y);
+    NSUInteger width = self.size.width;
+    NSUInteger height = self.size.height;
+    unsigned char rgba[4] = {};
+    CGColorSpaceRef colorSpace = CGColorSpaceCreateDeviceRGB();
+    CGContextRef context = CGBitmapContextCreate(rgba, 1, 1, 8, 4, colorSpace, kCGImageAlphaPremultipliedLast | kCGBitmapByteOrder32Big);
+    
+    CGContextSetBlendMode(context, kCGBlendModeCopy);
+    CGContextTranslateCTM(context, -point.x, point.y-(CGFloat)height);
+    
+    if (!context) {
+
+        CGColorSpaceRelease(colorSpace);
+        CGContextRelease(context);
+        return nil;
+    } else {
+
+        CGRect drawRect = CGRectMake(0, 0, width, height);
+        CGContextDrawImage(context, drawRect, self.CGImage);
+//        unsigned char *data = CGBitmapContextGetData(context);
+        CGColorSpaceRelease(colorSpace);
+        CGContextRelease(context);
+//        if (data == nil) {
+//            return nil;
+//        };
+        
+        return [UIColor colorWithRed:((CGFloat)rgba[0]) / 255.0
+                               green:((CGFloat)rgba[1]) / 255.0
+                                blue:((CGFloat)rgba[2]) / 255.0
+                               alpha:((CGFloat)rgba[3]) / 255.0];
+    }
+}
+
 - (UIImage *)xh_grayImage {
 
 

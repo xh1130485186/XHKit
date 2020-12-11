@@ -44,6 +44,9 @@
     return [self.visibleViewController prefersStatusBarHidden];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return  [self.visibleViewController preferredStatusBarStyle];
+}
 
 
 @end

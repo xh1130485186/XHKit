@@ -162,6 +162,16 @@
     return [self xh_dateByAddingDays:-days];
 }
 
+- (NSUInteger)xh_dayNumberToData:(NSDate *)toData {
+    return [NSDate xh_dayNumberWithFromDate:self toData:toData];
+}
+
++ (NSUInteger)xh_dayNumberWithFromDate:(NSDate *)fromdate toData:(NSDate *)toData {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitDay fromDate:fromdate toDate:toData options:NSCalendarWrapComponents];
+    return components.day;
+}
+
 #pragma mark - week 相关
 
 - (NSInteger)xh_weekday {
@@ -281,6 +291,12 @@
     return newDate;
 }
 
++ (NSUInteger)xh_weekNumberFromData:(NSDate *)fromData toData:(NSDate *)toData {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitWeekOfYear fromDate:fromData toDate:toData options:NSCalendarWrapComponents];
+    return components.weekOfYear;
+}
+
 #pragma mar - month 相关
 
 - (NSInteger)xh_numberOfDaysInMonth {
@@ -311,18 +327,14 @@
     return [calendar dateByAddingComponents:components toDate:self options:0];
 }
 
-- (NSDate *)xh_dateBySubtractingMonths:(NSInteger)months
-{
+- (NSDate *)xh_dateBySubtractingMonths:(NSInteger)months {
     return [self xh_dateByAddingMonths:-months];
 }
 
 
 - (NSDate *)xh_getFirstDateOfMonth {
-    
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    components.year = self.xh_year;
-    components.month = self.xh_month;
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:self];
     components.day = 1;
     components.hour = 0;
     components.minute = 0;
@@ -333,15 +345,46 @@
 - (NSDate *)xh_getLastDateOfMonth {
     
     NSCalendar *calendar = [NSCalendar currentCalendar];
-    NSDateComponents *components = [[NSDateComponents alloc] init];
-    components.year = self.xh_year;
-    components.month = self.xh_month;
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth fromDate:self];
     components.day = self.xh_numberOfDaysInMonth;
     components.hour = 23;
     components.minute = 59;
     components.second = 59;
     return [calendar dateFromComponents:components];
 }
+
+- (NSDate *)xh_getFirstDateOfCalendarMonth {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitWeekOfMonth fromDate:self];
+    components.weekOfMonth = 0;
+    components.weekday = 0;
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    return [calendar dateFromComponents:components];
+}
+
+- (NSDate *)xh_getLastDateOfCalendarMonth {
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSDateComponents *components = [calendar components:NSCalendarUnitYear|NSCalendarUnitMonth|NSCalendarUnitWeekOfMonth fromDate:self];
+    components.weekOfMonth = [self xh_weekNumberInMonth];
+    components.weekday = 6;
+    components.hour = 0;
+    components.minute = 0;
+    components.second = 0;
+    return [calendar dateFromComponents:components];
+}
+
+- (NSUInteger)xh_weekNumberInMonth {
+    
+    NSCalendar *calendar = [NSCalendar currentCalendar];
+    NSRange range = [calendar rangeOfUnit:NSCalendarUnitWeekOfMonth
+                                   inUnit:NSCalendarUnitMonth
+                                  forDate:self];
+    return range.length;
+}
+
 #pragma mark - year 相关
 
 - (BOOL)xh_isBissextile {
