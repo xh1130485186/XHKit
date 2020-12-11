@@ -17,7 +17,7 @@
 //#define IS_40INCH_SCREEN [XHUIHelper is40InchScreen]
 //
 //
-//@interface XHUIHelper : NSObject
+@interface XHUIHelper : NSObject
 //
 //#pragma mark - 屏幕种类
 //+ (BOOL)is65InchScreen;
