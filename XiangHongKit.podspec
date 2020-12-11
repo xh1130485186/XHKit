@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = "XiangHongKit"
-  s.version      = "0.4.7"
+  s.version      = "0.4.8"
   s.summary      = "framework"
   s.description  = <<-DESC
             Initialize the
